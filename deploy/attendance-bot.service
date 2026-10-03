@@ -1,0 +1,15 @@
+[Unit]
+Description=Weekend attendance Discord bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=attendance-bot
+WorkingDirectory=/opt/attendance-bot
+EnvironmentFile=/opt/attendance-bot/.env
+ExecStart=/opt/attendance-bot/.venv/bin/python -m bot
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
